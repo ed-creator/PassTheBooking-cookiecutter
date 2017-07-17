@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from phonenumber_field.modelfields import PhoneNumberField
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
@@ -11,6 +12,7 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
+    phone_number = PhoneNumberField(blank=True)
 
     def __str__(self):
         return self.username
