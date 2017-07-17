@@ -1,12 +1,11 @@
 from django.test import RequestFactory
-
 from test_plus.test import TestCase
+from django.test import Client
 
 from ..views import (
     UserRedirectView,
     UserUpdateView
 )
-
 
 class BaseUserTestCase(TestCase):
 
@@ -36,6 +35,8 @@ class TestUserRedirectView(BaseUserTestCase):
 
 class TestUserUpdateView(BaseUserTestCase):
 
+    c = Client()
+
     def setUp(self):
         # call BaseUserTestCase.setUp()
         super(TestUserUpdateView, self).setUp()
@@ -62,3 +63,29 @@ class TestUserUpdateView(BaseUserTestCase):
             self.view.get_object(),
             self.user
         )
+
+    def test_user_login(self):
+        self.client.login(username='testuser', password='password')
+        response = self.client.get('/users/testuser/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_update_page(self):
+        self.client.login(username='testuser', password='password')
+        response = self.client.get('/users/~update/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_update_details(self):
+        self.client.login(username='testuser', password='password')
+        response = self.client.get('/users/~update/')
+        self.assertContains(response, "testuser")
+
+    def test_user_can_update_details(self):
+        self.client.login(username='testuser', password='password')
+        x = self.client.post('/users/~update/', {'name':'Edward Wad', 'phone_number':'+447813611455', 'primary_city':('BA','Bath')}, follow=True)
+        print(x)
+        response = self.client.get('/users/~update/', )
+        print(response.context_data)
+        print(self.user.username)
+        self.assertEqual(self.user.phone_number, '+447813611455')
+        self.assertEqual(self.user.name, "TEST")
+        self.assertEqual(self.user.primary_city, '+London')

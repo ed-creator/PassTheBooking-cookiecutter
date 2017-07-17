@@ -56,6 +56,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'passthekeys.users.apps.UsersConfig',
+    'properties.apps.PropertiesConfig',
     # Your stuff: custom apps go here
 ]
 
