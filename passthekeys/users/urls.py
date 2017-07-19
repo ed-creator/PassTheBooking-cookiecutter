@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 
 from . import views
 
@@ -14,9 +14,10 @@ urlpatterns = [
         name='redirect'
     ),
     url(
-        regex=r'^(?P<username>[\w.@+-]+)/$',
-        view=views.UserDetailView.as_view(),
-        name='detail'
+        r'^(?P<username>[\w.@+-]+)/',
+        include('properties.urls', namespace='property'),
+        # view=views.UserDetailView.as_view(),
+        # name='detail',
     ),
     url(
         regex=r'^~update/$',

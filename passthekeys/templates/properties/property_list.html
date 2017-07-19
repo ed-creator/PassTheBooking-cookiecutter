@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Members{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Properties</h2>
+
+  <div class="list-group">
+    {% for property in property_list %}
+      <a href="{% url 'users:property:list' property.owner %}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ property.address }} || {{ property.owner }}</h4>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
