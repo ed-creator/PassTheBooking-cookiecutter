@@ -10,11 +10,16 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>Address: {{ object.address }}</h2>
+      <h2>Address: {{ object.address_line_one }}</h2>
+        <p>Address: {{ object.address }}</p>
         <p>No. of BedRooms: {{ object.no_of_bedroom }}</p>
         <p>Square Feet: {{ object.sq_feet }}</p>
-        <p> {{ object.booking_set.all}}</p>
-
+      <h2>Bookings</h2>
+        {% for booking in object.booking_set.all %}
+          <ol>
+            <li> {{ booking.date_of_check_in}} to {{ booking.date_of_check_out}} </li>
+          </ol>
+        {% endfor %}
     </div>
   </div>
   {% else %}
