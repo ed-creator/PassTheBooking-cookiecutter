@@ -13,7 +13,9 @@ class TestUser(TestCase):
                     address_line_one = "Flat 1, High Street",
                     address = "E2 6JD",
                     no_of_bedroom = 2,
-                    sq_feet = 100)
+                    sq_feet = 100,
+                    pk = 1
+                    )
 
     def test__str__(self):
         """Calling Property returns string"""
