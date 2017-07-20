@@ -19,9 +19,4 @@ urlpatterns = [
         view=views.PropertyCreateView.as_view(),
         name='create_property'
     ),
-    url(
-        regex=r'^property_list$',
-        view=views.PropertyListView.as_view(),
-        name='list'
-        ),
 ]

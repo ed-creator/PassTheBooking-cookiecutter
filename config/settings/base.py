@@ -57,6 +57,7 @@ LOCAL_APPS = [
     # custom users app
     'passthekeys.users.apps.UsersConfig',
     'properties.apps.PropertiesConfig',
+    'bookings.apps.BookingsConfig',
     # Your stuff: custom apps go here
 ]
 
