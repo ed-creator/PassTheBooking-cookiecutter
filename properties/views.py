@@ -8,9 +8,7 @@ from .models import Property
 
 class PropertyDetailView(DetailView):
     model = Property
-    slug_field = 'pk'
     pk_url_kwarg = "pk"
-    slug_url_kwarg = 'pk'
 
 
 class PropertyListView(ListView):

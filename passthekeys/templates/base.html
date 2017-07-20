@@ -48,6 +48,7 @@
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link" href="{% url 'users:property:detail' request.user.username  %}">{% trans "My Profile" %}</a>
               </li>
+                <a class="nav-link" href="{% url 'users:property:create_property' request.user.username %}">Add Property</a>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>

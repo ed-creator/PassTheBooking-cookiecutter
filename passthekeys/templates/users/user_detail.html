@@ -16,7 +16,7 @@
         <p>Phone Number: {{ object.phone_number }}</p>
 
         {% for property in object.property_set.all %}
-            <a href="{% url 'users:property:property_detail' property.id %}" class="list-group-item">
+            <a href="{% url 'users:property:property_detail' pk=property.id username=object.username %}" class="list-group-item">
               <p>A: {{ property.address_line_one }} {{ property.id }}</p>
             </a>
           <p>A: {{ property.address_line_one }}</p>
