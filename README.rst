@@ -11,17 +11,32 @@ PTK Tech Test
 :License: MIT
 
 
-Basic Commands
+Features
 --------------
 
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
+Users
+^^^^^
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. In order to add properties and view bookings you will need to complete your profile by providing some additional information - click on "Complete Profile" and fill out the form.
+* To create a **normal user account**, just go to Sign Up and fill out the form. In order to add properties and view bookings you will need to complete your profile by providing some additional information - click on "Complete Profile" and fill out the form. 
 
 * To create an **superuser account**, use this command::
 
     $ python manage.py createsuperuser
+    
+Properties
+^^^^^^^^^^
+
+* Properties can be added through a user interface, when logged in click "Add Property" in the menu bar and fill in the form. Properties cannot be added untill the user has completed their profile. 
+
+* All properties belonging to the user will be shown on their profile page. Each property has a hyperlink that will redirect the user to a detailed page on that property. Individual property pages can only be viewed by thie owners. 
+
+Bookings
+^^^^^^^^
+* Bookings can only be added by admin.
+
+* Each Property detail view show a list of Bookings for that Property - only the owner of the Property can view these. 
+
+* Bookings' full information can be shown by clicking on the Booking in the Property page. 
 
 Tests
 ^^^^^
