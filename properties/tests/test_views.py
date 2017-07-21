@@ -1,7 +1,6 @@
 from test_plus.test import TestCase
 from django.test import RequestFactory
 from django.contrib.auth.models import AnonymousUser
-from django.contrib.sessions.middleware import SessionMiddleware
 from unittest.mock import patch, MagicMock
 from passthekeys.users.models import User
 from properties.models import Property
@@ -14,15 +13,6 @@ from ..views import (
     PropertyCreateView
 )
 
-def add_middleware_to_request(request, middleware_class):
-    middleware = middleware_class()
-    middleware.process_request(request)
-    return request
-
-def add_middleware_to_response(request, middleware_class):
-    middleware = middleware_class()
-    middleware.process_request(request)
-    return request
 
 class BasePropertyTestCase(TestCase):
 

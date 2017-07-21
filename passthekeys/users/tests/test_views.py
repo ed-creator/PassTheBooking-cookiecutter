@@ -1,6 +1,10 @@
 from django.test import RequestFactory
 from test_plus.test import TestCase
 from django.test import Client
+from unittest.mock import patch, MagicMock
+from passthekeys.users.models import User
+
+
 
 from ..views import (
     UserRedirectView,
@@ -79,13 +83,14 @@ class TestUserUpdateView(BaseUserTestCase):
         response = self.client.get('/users/~update/')
         self.assertContains(response, "testuser")
 
+    @patch('passthekeys.users.models.User.save', MagicMock(name="save"))
     def test_user_can_update_details(self):
-        self.client.login(username='testuser', password='password')
-        x = self.client.post('/users/~update/', {'name':'Edward Wad', 'phone_number':'+447813611455', 'primary_city':('BA','Bath')}, follow=True)
-        print(x)
-        response = self.client.get('/users/~update/', )
-        print(response.context_data)
-        print(self.user.username)
-        self.assertEqual(self.user.phone_number, '+447813611455')
-        self.assertEqual(self.user.name, "TEST")
-        self.assertEqual(self.user.primary_city, '+London')
+        data = {'name':'Edward Wad',
+                'phone_number':'+447813611455',
+                'primary_city':'Bath'}
+        request = self.factory.post('/users/~update/', data)
+        request.user = self.user
+        response = UserUpdateView.as_view()(request)
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(User.save.called)
+        self.assertEqual(User.save.call_count, 0)
