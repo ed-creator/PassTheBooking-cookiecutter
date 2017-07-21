@@ -11,13 +11,6 @@ PTK Tech Test
 :License: MIT
 
 
-Settings
---------
-
-Moved to settings_.
-
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
-
 Basic Commands
 --------------
 
@@ -32,21 +25,15 @@ Setting Up Your Users
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
-Test coverage
-^^^^^^^^^^^^^
+Tests
+^^^^^
 
-To run the tests, check your test coverage, and generate an HTML coverage report::
+To run the tests::
 
-    $ coverage run manage.py test
-    $ coverage html
-    $ open htmlcov/index.html
+ $ python manage.py test 
 
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
 
-  $ py.test
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
