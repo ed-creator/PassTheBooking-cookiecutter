@@ -1,6 +1,6 @@
 from django.db import models
 from passthekeys.users.models import User
-# Create your models here.
+
 class Property(models.Model):
     """ holding information about property details,
         e.g. address, number of bedrooms, etc.

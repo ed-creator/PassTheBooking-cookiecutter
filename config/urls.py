@@ -14,7 +14,7 @@ urlpatterns = [
 
     # User management
     url(r'^users/', include('passthekeys.users.urls', namespace='users')),
-
+    url(r'^', include('bookings.urls', namespace='bookings')),
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here

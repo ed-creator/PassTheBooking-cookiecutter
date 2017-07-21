@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Property: {{ object.address_line_one }}{% endblock %}
+
+{% block content %}
+{% if object.booking_property.owner == request.user%}
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>Property: {{ object.booking_property }}</h2>
+        <p>Guest: {{ object.guest_name }}</p>
+        <p>Check In: {{ object.date_of_check_in }}</p>
+        <p>Check Out: {{ object.date_of_check_out }}</p>
+    </div>
+  </div>
+  {% else %}
+    <h2>Sorry, You don't own this property</h2>
+    <p>log in to view your property.</h2>
+{% endif %}
+
+<!-- Action buttons -->
+{% if object.owner == request.user%}
+
+<div class="row">
+
+  <div class="col-sm-12">
+    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">Update Info</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
+    <!-- Your Stuff: Custom user template urls -->
+  </div>
+
+</div>
+<!-- End Action buttons -->
+{% endif %}
+
+
+</div>
+{% endblock content %}

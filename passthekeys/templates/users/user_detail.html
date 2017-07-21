@@ -17,9 +17,8 @@
 
         {% for property in object.property_set.all %}
             <a href="{% url 'users:property:property_detail' pk=property.id username=object.username %}" class="list-group-item">
-              <p>A: {{ property.address_line_one }} {{ property.id }}</p>
+              {{ property.address_line_one }} 
             </a>
-          <p>A: {{ property.address_line_one }}</p>
         {% endfor %}
       {% endif %}
 
