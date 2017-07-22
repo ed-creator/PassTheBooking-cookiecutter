@@ -16,9 +16,9 @@
         <p>Square Feet: {{ object.sq_feet }}</p>
       <h2>Bookings</h2>
         {% for booking in object.booking_set.all %}
-          <ol>
-            <li> {{ booking.date_of_check_in}} to {{ booking.date_of_check_out}} </li>
-          </ol>
+            <a href="{% url 'bookings:booking_detail' pk=booking.id %}" class="list-group-item">
+               <p> {{ booking.date_of_check_in}} to {{ booking.date_of_check_out}} </p>
+            </a>
         {% endfor %}
     </div>
   </div>
