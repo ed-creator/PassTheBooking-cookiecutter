@@ -11,8 +11,9 @@ PassTheKeys
 
 PTK Tech Test
 
-This App uses PostgreSQL, run::
+To get started run::
 
+    $ pip install -r requirements/local.txt
     $ createdb passthekeys
 
 Features
