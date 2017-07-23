@@ -11,10 +11,14 @@ PassTheKeys
 
 PTK Tech Test
 
+Create a venv with python-3.6.1:
+
 To get started run::
 
     $ pip install -r requirements/local.txt
     $ createdb passthekeys
+    $ python manage.py migrate
+    $ python manage.py runserver
 
 Features
 --------------
