@@ -8,17 +8,17 @@
 
   <div class="row">
     <div class="col-sm-12">
-
-      <h2>Username: {{ object.username }}</h2>
-      {% if object.name %}
-        <p>Name: {{ object.name }}</p>
-        <p>Primary City: {{ object.primary_city }}</p>
-        <p>Phone Number: {{ object.phone_number }}</p>
+        <ul class="list-group">
+          {% if object.name %}
+        <li class="list-group-item"><p>Name: {{ object.name }}</p></li>
+        <li class="list-group-item"><p>Primary City: {{ object.primary_city }}</p></li>
+        <li class="list-group-item"><p>Phone Number: {{ object.phone_number }}</p></li>
 
         {% for property in object.property_set.all %}
             <a href="{% url 'users:property:property_detail' pk=property.id username=object.username %}" class="list-group-item">
               {{ property.address_line_one }}
             </a>
+        </ul>
         {% endfor %}
       {% endif %}
 
@@ -39,7 +39,6 @@
 </div>
 <!-- End Action buttons -->
 {% endif %}
-
 
 </div>
 {% endblock content %}

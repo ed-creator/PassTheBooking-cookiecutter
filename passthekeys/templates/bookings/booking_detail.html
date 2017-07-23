@@ -9,11 +9,12 @@
 
   <div class="row">
     <div class="col-sm-12">
-
+      <ul class="list-group">
       <h2>Property: {{ object.booking_property }}</h2>
-        <p>Guest: {{ object.guest_name }}</p>
-        <p>Check In: {{ object.date_of_check_in }}</p>
-        <p>Check Out: {{ object.date_of_check_out }}</p>
+        <li class="list-group-item"><p>Guest: {{ object.guest_name }}</p></li>
+        <li class="list-group-item"><p>Check In: {{ object.date_of_check_in }}</p></li>
+        <li class="list-group-item"><p>Check Out: {{ object.date_of_check_out }}</p></li>
+      </ul>
     </div>
   </div>
   {% else %}

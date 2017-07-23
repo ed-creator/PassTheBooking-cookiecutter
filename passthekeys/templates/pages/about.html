@@ -1,1 +1,43 @@
 {% extends "base.html" %}
+{% block content %}
+
+  <div class="container">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      
+      <h1>Sign Up Today!</h1>
+      <p class="lead">Get started with PassTheKeys today start earning now!</p>
+      <p class="lead">Call us on +44 20 8050 2818</p>
+      <p><a  class="btn btn-lg btn-success" href="{% url 'account_signup' %}" role="button">Get started today</a></p>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-lg-4">
+        <h2>Double Your Income</h2>
+        <p>A short term let normally generates 50-100% more income than a long term let. </p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-lg-4">
+        <h2>Hassle-Free</h2>
+        <p>We manage your listing and make renting on Airbnb hassle-free. </p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+     </div>
+      <div class="col-lg-4">
+        <h2>Flexible</h2>
+        <p>You choose when you rent your property and when you don't. No yearly subscriptions, no hidden fees..</p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="footer">
+      <p>&copy; 2016 Pass the Keys </p>
+
+    </footer>
+
+  </div> <!-- /container -->
+
+{% endblock content %}
+
+  <!-- /END THE FEATURETTES -->

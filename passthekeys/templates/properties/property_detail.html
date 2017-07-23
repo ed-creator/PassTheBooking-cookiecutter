@@ -9,15 +9,16 @@
 
   <div class="row">
     <div class="col-sm-12">
-
+      <ul class="list-group">
       <h2>Address: {{ object.address_line_one }}</h2>
-        <p>Address: {{ object.address }}</p>
-        <p>No. of BedRooms: {{ object.no_of_bedroom }}</p>
-        <p>Square Feet: {{ object.sq_feet }}</p>
+        <li class="list-group-item"><p>Post Code: {{ object.address }}</p></li>
+        <li class="list-group-item"><p>Number of Bedrooms: {{ object.no_of_bedroom }}</p></li>
+        <li class="list-group-item"><p>Square Feet: {{ object.sq_feet }}</p></li>
+      </ul>
       <h2>Bookings</h2>
         {% for booking in object.booking_set.all %}
-            <a href="{% url 'bookings:booking_detail' pk=booking.id %}" class="list-group-item">
-               <p> {{ booking.date_of_check_in}} to {{ booking.date_of_check_out}} </p>
+            <a href="{% url 'bookings:booking_detail' pk=booking.id %}" >
+               <li class="list-group-item"><p> {{ booking.date_of_check_in}} to {{ booking.date_of_check_out}} </p></li>
             </a>
         {% endfor %}
     </div>
