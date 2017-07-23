@@ -10,6 +10,9 @@ PTK Tech Test
 
 :License: MIT
 
+This App uses PostgreSQL, run::
+
+    $ createdb passthekeys
 
 Features
 --------------
